@@ -1,0 +1,23 @@
+			*******     GUIA DE USO PARA DBTPC     *******
+
+Existen 3 maneras de obtener la distancia en Kilometros y el tiempo de recorrido, se muestran en el menú Opciones:
+
+  ==> Directo. Requiere de los datos de Origen y Destino para que la opción se habilite, de la pantalla principal.
+      Los datos deben estar separador por comas, para un resultado más rápido y preciso, similar a Google Maps en Web.
+      Esto es:
+
+                    LOS BOSQUES,MONCLOVA,COAHUILA,25716,MEXICO
+
+      Donde, por orden de izquierda a derecha:
+          * Colonia o ASENTAMIENTO,
+          * Municipio,
+          * Estado,
+          * Código Postal
+          * País, en esta opción es la única forma de obtener datos de ubicaciones de otro país.
+
+  ==> Por Archivo. Requiere un archivo de Excel con los datos en columnas, la plantilla se puede obtener en el menú Herramientas con la opción Plantilla.
+      El orden de las columnas se deben respetar, pues de no hacer lo puede provocar algún tipo de error inesperado.
+      En este caso, favor de contactar a Sistemas Internos Microformas.
+
+  ==> Por Base. Requiere de una conexión a Base de datos, con una estructura ya definida.
+      Dispoible sólo para Administradores de Sistemas Internos Microformas.
