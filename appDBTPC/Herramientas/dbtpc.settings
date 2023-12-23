@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="appDBTPC.Herramientas" GeneratedClassName="dbtpc">
+  <Profiles />
+  <Settings>
+    <Setting Name="Usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Usuario</Value>
+    </Setting>
+    <Setting Name="Servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TUSERVIDORSQLSERVER\EQUIPO</Value>
+    </Setting>
+    <Setting Name="Base" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Catalogo</Value>
+    </Setting>
+    <Setting Name="Acceso" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Password</Value>
+    </Setting>
+    <Setting Name="Query" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SELECT ID_distance, (o_CP + ',' + o_Asentamiento + ',' + o_Municipio + ',' + o_Estado) AS Origen, (d_CP + ',' + d_Asentamiento + ',' + d_Municipio + ',' + d_Estado) AS Destino, distancia_Km, distancia_Time FROM distanceCPs WHERE d_CP IS NOT NULL AND (distancia_Km IS NULL OR distancia_Time IS NULL) ORDER BY ID_distance</Value>
+    </Setting>
+    <Setting Name="Configura" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

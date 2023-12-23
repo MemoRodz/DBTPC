@@ -1,0 +1,24 @@
+DBTPC
+Distance Between Two Postal Codes
+==================================
+Distancia Entre Dos Códigos Postales
+
+      Copyright © Microformas, 2016
+
+Distancia entre dos códigos postales, fue creado para 
+uso interno de la empresa Microformas, S. A. de C. V.
+      http://www.microformas.mx/
+
+Por Guillermo Rodríguez, bajo la plataformas .Net en 
+Visual Studio 2015 Community, códificado en C#.
+      gmo.rodriguez@gmail.com
+
+El programa emplea la API de Google Maps llamada
+Google Maps Distance Matrix API. Bajo los terminos de uso 
+estándar y condiciones del proveedor.
+
+https://developers.google.com/maps/documentation/distance-matrix/usage-limits?hl=es#lmites-de-uso-estndar
+
+
+
+

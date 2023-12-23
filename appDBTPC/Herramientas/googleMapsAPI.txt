@@ -1,0 +1,189 @@
+                  Google Maps Distance Matrix API
+                  
+https://developers.google.com/maps/documentation/distance-matrix/intro?hl=es#Introduction
+
+Introducción
+
+Google Maps Distance Matrix API es un servicio que proporciona la distancia y el tiempo de viaje para una matriz de orígenes y destinos. 
+La información devuelta se basa en la ruta recomendada entre los puntos de partida y llegada, según cálculos de la Google Maps API, 
+y consiste en filas que contienen valores duration y distance para cada par.
+
+Este servicio no devuelve información detallada sobre rutas. La información sobre rutas se puede obtener pasando el origen y 
+el destino individuales deseados a Google Maps Directions API.
+
+Público
+
+Este documento está orientado a desarrolladores que quieren calcular la distancia y el tiempo de viaje entre una cantidad de puntos usando la Google Maps API. 
+El documento proporciona una introducción al uso de la API y material de referencia sobre los parámetros disponibles.
+
+Solicitudes de matriz de distancia
+
+Una solicitud de Google Maps Distance Matrix API debe respetar la siguiente forma:
+
+https://maps.googleapis.com/maps/api/distancematrix/output?parameters
+Se recomienda el uso de HTTPS para aplicaciones que incluyen en las solicitudes datos privados de los usuarios, como la ubicación de un usuario.
+
+output puede tener los siguientes formatos:
+
+json (recomendado) indica el formato de salida en JavaScript Object Notation (JSON), o
+xml indica el formato de salida como XML.
+Las direcciones URL de la Google Maps Distance Matrix API están restringidas a aproximadamente 2000 caracteres, después de la codificación URL. 
+Dado que algunas direcciones URL del servicio Google Maps Distance Matrix API pueden contener muchas ubicaciones, 
+debes tener en cuenta este límite al construir tus direcciones URL. Ten en cuenta que los diferentes navegadores, proxies y 
+servidores también pueden tener límites de caracteres diferentes para las direcciones URL.
+
+Parámetros de la solicitud
+
+Algunos parámetros son obligatorios y otros opcionales. Como es norma en las direcciones URL, todos los parámetros se separan con el carácter de Y comercial (&).
+
+Parámetros obligatorios
+
+origins (obligatorio): una o más direcciones o valores textuales de latitud/longitud separados por el carácter de barra vertical (|), 
+desde los que se calculará la distancia y el tiempo. Si pasas una dirección en forma de cadena, el servicio geocodificará la cadena y 
+la convertirá en una coordenada de latitud/longitud para calcular las distancias. Si pasas coordenadas, asegúrate de que no haya espacios 
+entre los valores de latitud y longitud.
+
+origins=Bobcaygeon+ON|41.43206,-81.38992
+
+destinations: una o más direcciones o valores textuales de latitud/longitud separados con el carácter de barra vertical (|), 
+hasta los que se calculará la distancia y el tiempo. Si pasas una dirección en forma de cadena, el servicio geocodificará la cadena y 
+la convertirá en una coordenada de latitud/longitud para calcular las distancias. Si pasas coordenadas, asegúrate de que no haya espacios 
+entre los valores de latitud y longitud.
+
+destinations=Darling+Harbour+NSW+Australia|24+Sussex+Drive+Ottawa+ON|Capitola+CA
+
+key: la clave de API de tu aplicación. Esta clave identifica tu aplicación a los fines de la administración de la cuota. 
+Infórmate acerca de cómo obtener una clave.
+Los usuarios de Google Maps API for Work deben incluir parámetros client y signature válidos con sus solicitudes de matriz de distancia. 
+Para obtener más información, consulta el capítulo Servicios web de Google Maps API for Work.
+
+Parámetros opcionales
+
+mode (el valor predeterminado es driving): especifica el medio de transporte que se debe usar para calcular la distancia. En la sección Medios de transporte de este documento se especifican valores válidos y otros detalles de la solicitud.
+language: el idioma en el que se devolverán los resultados. Consulta la lista de idiomas de dominio admitidos. Ten en cuenta que, a menudo, actualizamos los idiomas admitidos, por lo que es posible que esta lista no esté completa.
+avoid: introduce restricciones para la ruta. En la sección Restricciones de este documento se especifican los valores válidos. Solo se puede especificar una restricción.
+units: especifica el sistema de unidades que se usará para expresar la distancia como texto. Para obtener más información, consulta la sección Sistemas de unidades de este documento.
+arrival_time: especifica la hora deseada de llegada para solicitudes de transporte, expresada en segundos a partir de la medianoche del 1 de enero de 1970, UTC. Puedes especificar departure_time o arrival_time, pero no ambos. Ten en cuenta que arrival_time se debe especificar como un número entero.
+departure_time: la hora deseada de partida. Puedes especificar la hora como un número entero en segundos a partir de la medianoche del 1 de enero de 1970, UTC. También puedes especificar un valor de now, que establece la hora de partida en la hora actual (ajustada al segundo más cercano). La hora de partida se puede especificar en dos casos:
+Para solicitudes en las que el modo de desplazamiento es transporte: También puedes especificar departure_time o arrival_time. Si no especificas ninguno, departure_time adoptará, de forma predeterminada, el valor de “now” (es decir, la hora de partida se establece en la hora actual).
+Para solicitudes en las que el medio de transporte es manejo: Puedes especificar departure_time para recibir una ruta y la duración del viaje (campo de respuesta: duration_in_traffic), que considera las condiciones del tráfico. Esta opción solo está disponible si la solicitud contiene una clave de API válida, o un id. de cliente de Google Maps API for Work y una firma. El valor de departure_time se debe establecer en la hora actual o en alguna hora futura. No puede ser un horario pasado.
+traffic_model (el valor predeterminado es best_guess): especifica las suposiciones que deben aplicarse al calcular el tiempo con tráfico. Esta configuración afecta el valor devuelto en el campo duration_in_traffic en la respuesta, que contiene el tiempo previsto en el tráfico según promedios históricos. El parámetro traffic_model solo se puede especificar para solicitudes en las que el modo de desplazamiento es driving y cuando la solicitud incluya una departure_time, y solo si la solicitud incluye una clave de API o un id. de cliente de Google Maps API for Work. Los valores disponibles para este parámetro son:
+best_guess (predeterminado) indica que el valor duration_in_traffic devuelto debe ser el mejor cálculo en términos de tiempo de viaje a partir de lo que se conoce sobre las condiciones históricas del tráfico y el tráfico en tiempo real. El tráfico en tiempo real cobra importancia a medida que el valor departure_time se acerca a la hora actual.
+pessimistic indica que el valor duration_in_traffic devuelto debe ser superior al tiempo de viaje real en la mayoría de los días. Sin embargo, este valor puede ser inferior al tiempo de viaje real en ciertos días en que las condiciones de tráfico son particularmente desfavorables.
+optimistic indica que el valor duration_in_traffic devuelto debe ser inferior al del tiempo de viaje real en la mayoría de los días. Sin embargo, este valor puede ser superior al tiempo de viaje real en ciertos días en que las condiciones de tráfico son particularmente favorables.
+transit_mode: especifica uno o más medios de transporte. Este parámetro solo se puede especificar para solicitudes en las que mode esté establecido en transit Este parámetro admite los siguientes argumentos:
+bus indica que para la ruta calculada debe priorizarse el transporte en autobús.
+subway indica que para la ruta calculada debe priorizarse el transporte en subterráneo.
+train indica que para la ruta calculada debe priorizarse el transporte en tren.
+tram indica que para la ruta calculada debe priorizarse el transporte en tranvía y tren ligero.
+rail indica que para la ruta calculada debe priorizarse el transporte en tren, tranvía, tren ligero y subterráneo. Esto equivale a transit_mode=train|tram|subway.
+transit_routing_preference: especifica preferencias para solicitudes de transporte. Mediante este parámetro, puedes restringir las opciones devueltas, en lugar de aceptar la mejor ruta predeterminada seleccionada por la API. Este parámetro solo se puede especificar para solicitudes en las que mode se haya establecido como transit. Este parámetro admite los siguientes argumentos:
+less_walking indica que para la ruta calculada se deben incluir traslados a pie limitados.
+fewer_transfers indica que para la ruta calculada se debe incluir una cantidad limitada de transbordos.
+* Nota: las solicitudes que incluyen el parámetro departure_time están limitadas a 100 elementos.
+
+Modos de viaje
+
+Cuando calculas indicaciones, debes especificar el medio de transporte (mode) que usarás. De forma predeterminada, las distancias se calculan para manejo. Se admiten los siguientes medios de transporte:
+
+driving (predeterminado) indica el cálculo de la distancia usando la red de carreteras.
+walking solicita el cálculo de la distancia para el traslado a pie por sendas peatonales y veredas (cuando estén disponibles).
+bicycling solicita el cálculo de la distancia para el traslado en bicicleta por ciclovías y calles preferidas (cuando estén disponibles).
+transit solicita el cálculo de la distancia por rutas de transporte público (cuando estén disponibles). Este valor solo se puede especificar si la solicitud incluye una clave de API o un id. de cliente de Google Maps API for Work válido. Si configuraste el medio en transit, puedes especificar un departure_time o un arrival_time. Si no especificas ninguno, departure_time adoptará, de forma predeterminada, el valor de “now” (es decir, la hora de partida se establece en la hora actual). También puedes incluir un transit_mode o una transit_routing_preference.
+Nota: Es posible que las rutas de traslado a pie y en bicicleta no incluyan sendas peatonales o ciclovías claras; por lo tanto, para estas respuestas se devolverán warnings que debes mostrar al usuario.
+
+Restricciones
+
+Pueden calcularse distancias de modo que se ajusten a ciertas restricciones. Las restricciones se indican mediante el uso del parámetro avoid y un argumento para ese parámetro que indique la restricción que se debe evitar. Se admiten las siguientes restricciones:
+
+avoid=tolls
+avoid=highways
+avoid=ferries
+avoid=indoor
+* Nota: la adición de restricciones no excluye rutas que incluyen la característica restringida; simplemente inclina el resultado a rutas más favorables.
+
+Sistemas de unidades
+
+Los resultados de la matriz de distancia contienen text dentro de campos distance para indicar la distancia de la ruta calculada. Se puede especificar el sistema de unidades que se usará:
+
+units=metric (predeterminado) devuelve distancias en kilómetros y metros.
+units=imperial devuelve distancias en millas y pies.
+* Nota: esta configuración del sistema de unidades solo tiene efecto sobre el text que se muestra en los campos distance. Los campos distance también contienen values que siempre se expresan en metros.
+
+Respuestas de la matriz de distancia
+
+Las respuestas a las solicitudes realizadas a la Google Maps Distance Matrix API se devuelven en el formato indicado por el marcador output en la ruta de acceso de la dirección URL de la solicitud.
+
+A continuación se muestran dos ejemplos de solicitudes HTTP en las que se solicita la distancia y la duración de un recorrido desde Vancouver, BC, Canadá, y desde Seattle, WA, EE. UU., hasta San Francisco, CA, EE. UU. y hasta Victoria, BC, Canadá.
+
+Esta solicitud muestra el uso del marcador output de JSON:
+
+https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
+Esta solicitud muestra el uso del marcador output de XML:
+
+https://maps.googleapis.com/maps/api/distancematrix/xml?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Vancouver+BC&mode=bicycling&language=fr-FR&key=YOUR_API_KEY
+Esta solicitud devolverá cuatro elementos: dos horarios para los orígenes y dos destinos:
+
+De Vancouver a San Francisco	De Vancouver a Victoria
+De Seattle a San Francisco	De Seattle a Victoria
+Los resultados se devuelven en filas y cada fila contiene un origen asociado a cada destino.
+
+Elementos de la respuesta de la matriz de distancia
+
+Las respuestas de la matriz de distancia contienen los siguientes elementos raíz:
+
+status contiene metadatos sobre la solicitud. Consulta los siguientes Códigos de estado.
+origin_addresses contiene una matriz de direcciones devueltas por la API a partir de tu solicitud original. El geocoder les da formato y las localiza de acuerdo con el parámetro language que se haya pasado con la solicitud.
+destination_addresses contiene una matriz de direcciones devueltas por la API a partir de tu solicitud original. Al igual que con las origin_addresses, estas direcciones se localizan, si corresponde.
+rows contiene una matriz de elements, y cada uno de ellos contiene un elemento status, duration y distance.
+Códigos de estado
+
+Los campos status en el objeto de la respuesta contienen el estado de la solicitud y podrían contener información útil sobre depuración. Distance Matrix API devuelve un campo de estado de nivel superior con información acerca de la solicitud en general, y también un campo de estado para cada campo de elemento con información sobre ese par específico de origen y destino.
+
+Códigos de estado de nivel superior
+
+OK indica que la respuesta contiene un result válido.
+INVALID_REQUEST indica que la solicitud proporcionada no era válida.
+MAX_ELEMENTS_EXCEEDED: indica que el producto de orígenes y destinos excede el límite por consulta.
+OVER_QUERY_LIMIT indica que el servicio recibió demasiadas solicitudes desde tu aplicación dentro del período permitido.
+REQUEST_DENIED indica que el servicio no permitió que tu aplicación usara el servicio de matriz de distancia.
+UNKNOWN_ERROR indica que no se pudo procesar una solicitud a la matriz de distancia debido a un error en el servidor. La solicitud puede tener éxito si realizas un nuevo intento.
+Códigos de estado para el nivel de elementos
+
+OK indica que la respuesta contiene un result válido.
+NOT_FOUND: indica que el origen o destino de esta sincronización no pudieron someterse a geocodificación.
+ZERO_RESULTS indica que no fue posible hallar una ruta entre el origen y el destino.
+Mensajes de error
+
+Cuando el código de estado de nivel superior es diferente de OK, podría haber un campo error_message adicional en el objeto de la respuesta de la matriz de distancia. Este campo contiene información más detallada acerca de los motivos del código de estado proporcionado.
+
+
+Filas
+
+Cuando la Google Maps Distance Matrix API devuelve resultados, los coloca en una matriz de rows JSON. Incluso si el servicio no devuelve resultados (como ocurriría si los orígenes o los destinos no existieran), aún devolverá una matriz vacía. Las respuestas XML consisten en cero o más elementos <row>.
+
+Las filas se ordenan de acuerdo con valores en el parámetro origin de la solicitud. Cada fila corresponde a un origen, y cada element dentro de esa fila corresponde a una sincronización del origen con un valor destination.
+
+Cada matriz de row contiene una o más entradas element que, a su vez, contienen información acerca de una sincronización individual de origen y destino.
+
+Elementos
+
+La información acerca de cada sincronización de origen y destino se devuelve en una entrada element. Un element contiene los siguientes campos:
+
+status: Consulta Códigos de estado para obtener una lista de códigos de estado posibles.
+duration: El período de tiempo que se necesita para recorrer esta ruta, expresado en segundos (campo value) y como text. La representación textual se localiza de acuerdo con el parámetro language de la consulta.
+duration_in_traffic: Tiempo necesario para recorrer esta ruta, en función de condiciones de tráfico actuales e históricas. Consulta el parámetro de solicitud traffic_model para obtener información acerca de las opciones que puedes usar para solicitar que el valor devuelto sea optimista, pesimista o la mejor aproximación. La duración se expresa en segundos (campo value) y como text. La representación textual se localiza de acuerdo con el parámetro language de la consulta. La duración en el tráfico solo se devuelve si todos los siguientes enunciados son verdaderos:
+
+La solicitud incluye un parámetro departure_time.
+La solicitud incluye una clave de API válida, o un ID. de cliente de Google Maps API for Work y una firma válidos.
+Las condiciones del tráfico están disponibles para la ruta solicitada.
+El parámetro mode está configurado en driving.
+distance: La distancia total de esta ruta, expresada en metros (value) y como text. El valor textual usa el sistema de unidades especificado con el parámetro unit de la solicitud original o de la región de origen.
+fare: Si estuviera presente, contiene los costos totales (es decir, los costos totales de los tickets) para esta ruta. Esta propiedad se devuelve únicamente para solicitudes de transporte y en el caso de proveedores de transporte, cuando se encuentre disponible información sobre gastos. La información incluye lo siguiente:
+currency: código de moneda ISO 4217 que indica la divisa en la cual se expresa el monto.
+value: monto total expresado en la moneda antes especificada.
+text: monto total con formato en el idioma solicitado.
+
+El parámetro sensor
+
+Antes, la Google Maps API requería que incluyeras el parámetro sensor para indicar si tu aplicación usaba un sensor para determinar la ubicación del usuario. El uso de este parámetro ya no es obligatorio.

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "distancePoints", "distanceP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetDistance", "GetDistance\GetDistance.csproj", "{88495C66-B210-4E55-9360-BEBA4D4EDCD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appDBTPC", "appDBTPC\appDBTPC.csproj", "{74F3A6E3-A0CD-4AB1-9D81-84D4D9C8C487}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{88495C66-B210-4E55-9360-BEBA4D4EDCD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88495C66-B210-4E55-9360-BEBA4D4EDCD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88495C66-B210-4E55-9360-BEBA4D4EDCD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F3A6E3-A0CD-4AB1-9D81-84D4D9C8C487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F3A6E3-A0CD-4AB1-9D81-84D4D9C8C487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F3A6E3-A0CD-4AB1-9D81-84D4D9C8C487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F3A6E3-A0CD-4AB1-9D81-84D4D9C8C487}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
