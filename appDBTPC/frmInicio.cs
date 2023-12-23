@@ -231,19 +231,19 @@ namespace appDBTPC
                 xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
                 xlWorkSheet.Name = "OrigenDestino";
                 xlWorkSheet.Cells[1, 1] = "ID";
-                xlWorkSheet.Cells[1, 2] = "d_CP"; xlWorkSheet.Cells[1, 2].Interior.ColorIndex = 19; xlWorkSheet.Cells[1, 2].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 3] = "d_ASENTAMIENTO"; xlWorkSheet.Cells[1, 3].Interior.ColorIndex = 29; xlWorkSheet.Cells[1, 3].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 4] = "d_MUNICIPIO"; xlWorkSheet.Cells[1, 4].Interior.ColorIndex = 30; xlWorkSheet.Cells[1, 4].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 5] = "d_CIUDAD"; xlWorkSheet.Cells[1, 5].Interior.ColorIndex = 31; xlWorkSheet.Cells[1, 5].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 6] = "d_ESTADO"; xlWorkSheet.Cells[1, 6].Interior.ColorIndex = 32; xlWorkSheet.Cells[1, 6].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 2] = "d_CP"; //xlWorkSheet.Cells[1, 2].Interior.ColorIndex = 19; xlWorkSheet.Cells[1, 2].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 3] = "d_ASENTAMIENTO"; //xlWorkSheet.Cells[1, 3].Interior.ColorIndex = 29; xlWorkSheet.Cells[1, 3].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 4] = "d_MUNICIPIO"; //xlWorkSheet.Cells[1, 4].Interior.ColorIndex = 30; xlWorkSheet.Cells[1, 4].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 5] = "d_CIUDAD"; //xlWorkSheet.Cells[1, 5].Interior.ColorIndex = 31; xlWorkSheet.Cells[1, 5].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 6] = "d_ESTADO"; //xlWorkSheet.Cells[1, 6].Interior.ColorIndex = 32; xlWorkSheet.Cells[1, 6].Font.ColorIndex = 2;
                 xlWorkSheet.Cells[1, 7] = "d_DESC_ZONA";
                 xlWorkSheet.Cells[1, 8] = "d_DESC_REGION";
                 xlWorkSheet.Cells[1, 9] = "d_LOCALIDAD";
-                xlWorkSheet.Cells[1, 10] = "o_CP"; xlWorkSheet.Cells[1, 10].Interior.ColorIndex = 33; xlWorkSheet.Cells[1, 10].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 11] = "o_ASENTAMIENTO"; xlWorkSheet.Cells[1, 11].Interior.ColorIndex = 34; xlWorkSheet.Cells[1, 11].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 12] = "o_MUNICIPIO"; xlWorkSheet.Cells[1, 12].Interior.ColorIndex = 35; xlWorkSheet.Cells[1, 12].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 13] = "o_CIUDAD"; xlWorkSheet.Cells[1, 13].Interior.ColorIndex = 36; xlWorkSheet.Cells[1, 13].Font.ColorIndex = 2;
-                xlWorkSheet.Cells[1, 14] = "o_ESTADO"; xlWorkSheet.Cells[1, 14].Interior.ColorIndex = 37; xlWorkSheet.Cells[1, 14].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 10] = "o_CP"; //xlWorkSheet.Cells[1, 10].Interior.ColorIndex = 33; xlWorkSheet.Cells[1, 10].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 11] = "o_ASENTAMIENTO"; //xlWorkSheet.Cells[1, 11].Interior.ColorIndex = 34; xlWorkSheet.Cells[1, 11].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 12] = "o_MUNICIPIO"; //xlWorkSheet.Cells[1, 12].Interior.ColorIndex = 35; xlWorkSheet.Cells[1, 12].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 13] = "o_CIUDAD"; //xlWorkSheet.Cells[1, 13].Interior.ColorIndex = 36; xlWorkSheet.Cells[1, 13].Font.ColorIndex = 2;
+                xlWorkSheet.Cells[1, 14] = "o_ESTADO"; //xlWorkSheet.Cells[1, 14].Interior.ColorIndex = 37; xlWorkSheet.Cells[1, 14].Font.ColorIndex = 2;
                 xlWorkSheet.Cells[1, 15] = "o_DESC_ZONA";
                 xlWorkSheet.Cells[1, 16] = "o_DESC_REGION";
                 xlWorkSheet.Cells[1, 17] = "o_LOCALIDAD";
@@ -257,7 +257,7 @@ namespace appDBTPC
                     {
                         case 1:
                             //Se cambia a Negrita
-                            xlWorkSheet.Cells[1, indcol].Font.Bold();
+                            //xlWorkSheet.Cells[1, indcol].Font.Bold();
 
                             //xlWorkSheet.Columns[indcol].AutoFit();
                             break;
@@ -272,13 +272,13 @@ namespace appDBTPC
                         case 13:
                         case 14:
                             //Se cambia a Texto subrrayado
-                            xlWorkSheet.Cells[1, indcol].Font.Underline();
+                            //xlWorkSheet.Cells[1, indcol].Font.Underline();
 
                             //xlWorkSheet.Columns[indcol].AutoFit();
                             break;
                         default:
                             //Se cambia a letra Italica
-                            xlWorkSheet.Cells[1, indcol].Font.Italic();
+                            //xlWorkSheet.Cells[1, indcol].Font.Italic();
 
                             //xlWorkSheet.Columns[indcol].AutoFit();
                             break;

@@ -337,7 +337,7 @@ namespace appDBTPC
             TextBox textBox;
             string fullPath;
 
-            fullPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Herramientas\"), fileName);
+            fullPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Herramientas\"), fileName);
 
             page = new TabPage
             {
