@@ -279,6 +279,7 @@ namespace appDBTPC
                         default:
                             //Se cambia a letra Italica
                             xlWorkSheet.Cells[1, indcol].Font.Italic();
+
                             //xlWorkSheet.Columns[indcol].AutoFit();
                             break;
                     }
