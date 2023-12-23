@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetDistance", "GetDistance\GetDistance.csproj", "{F1BA156E-5DA5-4B2C-BA15-C1A78BB60C3D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "distancePoints", "distancePoints\distancePoints.csproj", "{E60D2987-8DFB-4D10-8D9F-7C018817EA12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "distancePoints", "distancePoints\distancePoints.csproj", "{E60D2987-8DFB-4D10-8D9F-7C018817EA12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F1BA156E-5DA5-4B2C-BA15-C1A78BB60C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1BA156E-5DA5-4B2C-BA15-C1A78BB60C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1BA156E-5DA5-4B2C-BA15-C1A78BB60C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1BA156E-5DA5-4B2C-BA15-C1A78BB60C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E60D2987-8DFB-4D10-8D9F-7C018817EA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E60D2987-8DFB-4D10-8D9F-7C018817EA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E60D2987-8DFB-4D10-8D9F-7C018817EA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
