@@ -10,6 +10,10 @@ namespace GetDistance
 {
     class ObtenDistancia
     {
+        /// <summary>
+        /// Aplicación de consola para pruebas de funcionalidad de clase distancePoints.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine(distancePoints.getData.Saluda());

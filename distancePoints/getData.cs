@@ -233,8 +233,8 @@ namespace distancePoints
                     //Levantamos la basura
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
-                    tiempo = xmldoc.GetElementsByTagName("status")[1].ChildNodes[0].InnerText; //NOT_FOUND
-                    distancia = xmldoc.GetElementsByTagName("status")[1].ChildNodes[0].InnerText;  //NOT_FOUND
+                    tiempo = xmldoc.GetElementsByTagName("status")[1].ChildNodes[0].InnerText; // NOT_FOUND
+                    distancia = xmldoc.GetElementsByTagName("status")[1].ChildNodes[0].InnerText;  // NOT_FOUND
                 }
             }
             else
