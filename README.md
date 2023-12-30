@@ -12,8 +12,15 @@ Ahora lo estoy actualizando a Visual Studio 2022 dando muestra de:
 
 🖍️ Ser el creador del código original y con esto adecuarlo según las necesidades solicitadas.
 
-🖍️ Uso de Google© Apis, Bibliotecas de Microsoft© Office© (requiere Office Instalado en el sistema local, la validez de la licencia es responsabilidad de cada usuario).
+🖍️ Uso de Google© Apis llamada Google Maps Distance Matrix API.
+
+🖍️ Bibliotecas de Microsoft© Office© (requiere Office Instalado en el sistema local, la validez de la licencia es responsabilidad de cada usuario).
 
 🖍️ Uso de referencias de proyectos .Net
 
-Iré actualizando de acuerdo a las posibilidades.
+## Sobre la aplicación
+
+La aplicación cuenta con un menú y tiene la opción de ayuda que permite desplegar información sobre la aplicación, el uso de la misma, obtener la platilla de MS ©Excel y más.
+
+
+### Iré actualizando de acuerdo a las posibilidades.

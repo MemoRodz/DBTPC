@@ -618,6 +618,8 @@ namespace appDBTPC
 
         #endregion
 
+        #region Eventos vacios.
+
         private void lblOrigen_Click(object sender, EventArgs e)
         {
 
@@ -637,5 +639,7 @@ namespace appDBTPC
         {
 
         }
+
+        #endregion
     }
 }
